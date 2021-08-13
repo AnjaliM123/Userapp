@@ -154,16 +154,6 @@ app.post("/user/", async (request, response) => {
     designation,
     about,
   } = request.body;
-  let upperCase1 = 0;
-  let lowerCase1 = 0;
-  let numberCount = 0;
-  for (let count of password) {
-    if (count === count.toUpperCase()) {
-      upperCase1 = upperCase1 + 1;
-    }
-  }
-  console.log(upperCase1);
-  console.log(lowerCase1);
   const hashedPassword = await bcrypt.hash(password, 10);
   const selectUserQuery = `
         SELECT * FROM user WHERE name='${name}';`;

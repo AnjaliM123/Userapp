@@ -1,20 +1,5 @@
 
-###
-POST http://localhost:3000/user/
-Content-Type: application/json
 
-{
-    "id":1,
-    "name":"john5",
-    "email":"john@123.com",
-    "password":"1237&Abc",
-    "age":30,
-    "gender":"male",
-    "company":"xyz",
-    "designation":"abc",
-    "about":"john1 xyz"
-
-}
 
 ###
 GET http://localhost:3000/user/
@@ -42,7 +27,7 @@ GET http://localhost:3000/user/2/
 
 ###
 
-DELETE http://localhost:3000/user/2/
+DELETE http://localhost:3000/user/1/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiam9objUiLCJpYXQiOjE2Mjg4Mzc4Nzd9.W85sm0qR7EAXJ_w9dRvILx2mY5LiclrHY3EtdrpzbJI
 
 
@@ -93,7 +78,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiam9objUiL
     "id":1,
     "name":"john5",
     "email":"john@123.com",
-    "password":1237&Abc,
+    "password":"1237&Abc",
     "age":37,
     "gender":"male",
     "company":"xyz",

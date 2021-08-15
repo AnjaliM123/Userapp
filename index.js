@@ -4,7 +4,6 @@ const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const passwordValidate = require("password-validate");
 const app = express();
 app.use(express.json());
 const dbPath = path.join(__dirname, "userprofile.db");
@@ -52,7 +51,7 @@ const authenticationToken = (request, response, next) => {
   }
 };
 
-/*app.post("/user/", async (request, response) => {
+/*app.post("/profile/", async (request, response) => {
   const userDetails = request.body;
   console.log(userDetails);
   const {
@@ -77,16 +76,16 @@ const authenticationToken = (request, response, next) => {
 
 //app get api
 
-app.get("/profile/", authenticationToken, async (request, response) => {
+app.get("/profile/", async (request, response) => {
   const getUserQuery = `
-        SELECT * FROM user;`;
+        SELECT * FROM user ORDER BY id ASC;`;
   const userArray = await db.all(getUserQuery);
   response.send(userArray);
 });
 
 //app put
 
-app.put("/user/:userId/", authenticationToken, async (request, response) => {
+app.put("/profile/:userId/", authenticationToken, async (request, response) => {
   const { userId } = request.params;
   const userDetails = request.body;
   const {
@@ -114,35 +113,36 @@ app.put("/user/:userId/", authenticationToken, async (request, response) => {
         about='${about}'
         WHERE id=${userId};`;
   const dbResponse = await db.run(updateUserQuery);
-  console.log(dbResponse.age);
   response.send("user updated successfully");
 });
 
 //app get api
 
-app.get("/user/:userId", authenticationToken, async (request, response) => {
+app.get("/profile/:userId", async (request, response) => {
   const { userId } = request.params;
   const getUserQuery = `
         SELECT * FROM user WHERE id=${userId};`;
-  console.log(getUserQuery);
   const userArray = await db.get(getUserQuery);
   response.send(userArray);
 });
 
 //app delete api
 
-app.delete("/user/:userId", authenticationToken, async (request, response) => {
-  const { userId } = request.params;
-  console.log(userId);
-  const deleteUserQuery = `
+app.delete(
+  "/profile/:userId",
+  authenticationToken,
+  async (request, response) => {
+    const { userId } = request.params;
+    const deleteUserQuery = `
     DELETE FROM user WHERE id=${userId};`;
-  await db.get(deleteUserQuery);
-  response.send("user deleted");
-});
+    await db.get(deleteUserQuery);
+    response.send("user deleted");
+  }
+);
 
 //app post api
 
-app.post("/user/", async (request, response) => {
+app.post("/profile/", async (request, response) => {
   const {
     id,
     name,

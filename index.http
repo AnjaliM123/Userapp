@@ -1,11 +1,8 @@
 
 
-
-###
-GET http://localhost:3000/user/
 ###
 
-PUT http://localhost:3000/user/1/
+PUT http://localhost:3000/profile/1/
 Content-Type: application/json
 
 {
@@ -14,7 +11,7 @@ Content-Type: application/json
     "name":"john5",
     "email":"john@123.com",
     "password":"1237&Abc",
-    "age":30,
+    "age":37,
     "gender":"male",
     "company":"xyz",
     "designation":"abc",
@@ -23,17 +20,19 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/user/2/
+GET http://localhost:3000/profile/1/
 
 ###
 
-DELETE http://localhost:3000/user/1/
+DELETE http://localhost:3000/profile/1/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiam9objUiLCJpYXQiOjE2Mjg4Mzc4Nzd9.W85sm0qR7EAXJ_w9dRvILx2mY5LiclrHY3EtdrpzbJI
 
 
 ###
+GET http://localhost:3000/profile/
+###
 
-POST http://localhost:3000/user/
+POST http://localhost:3000/profile/
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiam9objUiLCJpYXQiOjE2Mjg4Mzc4Nzd9.W85sm0qR7EAXJ_w9dRvILx2mY5LiclrHY3EtdrpzbJI
 
@@ -48,6 +47,44 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiam9objUiL
     "company":"xyz",
     "designation":"abc",
     "about":"john1 xyz"
+
+}
+###
+POST http://localhost:3000/profile/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiam9objUiLCJpYXQiOjE2Mjg4Mzc4Nzd9.W85sm0qR7EAXJ_w9dRvILx2mY5LiclrHY3EtdrpzbJI
+
+
+{
+    "id":2,
+    "name":"rahul3",
+    "email":"rahul@123.com",
+    "password":"1237&Rahul",
+    "age":30,
+    "gender":"male",
+    "company":"xyz",
+    "designation":"abc",
+    "about":"rahul xyz"
+
+}
+
+###
+
+POST http://localhost:3000/profile/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiam9objUiLCJpYXQiOjE2Mjg4Mzc4Nzd9.W85sm0qR7EAXJ_w9dRvILx2mY5LiclrHY3EtdrpzbJI
+
+
+{
+    "id":3,
+    "name":"rakesh",
+    "email":"rakesh@123.com",
+    "password":"1237&Rakesh",
+    "age":30,
+    "gender":"male",
+    "company":"xyz",
+    "designation":"abc",
+    "about":"rakesh xyz"
 
 }
 
@@ -57,19 +94,37 @@ POST http://localhost:3000/login/
 Content-Type: application/json
 
 {
-   "name":"john5",
+    "name":"john5",
     "email":"john@123.com",
     "password":"1237&Abc"
 }
-###
-
-
-GET http://localhost:3000/profile/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiam9objUiLCJpYXQiOjE2Mjg4Mzc4Nzd9.W85sm0qR7EAXJ_w9dRvILx2mY5LiclrHY3EtdrpzbJI
 
 ###
 
-PUT http://localhost:3000/user//
+POST http://localhost:3000/login/
+Content-Type: application/json
+
+{
+     "name":"rakesh",
+    "email":"rakesh@123.com",
+    "password":"1237&Rakesh"
+}
+
+###
+
+POST http://localhost:3000/login/
+Content-Type: application/json
+
+{
+    "name":"rahul3",
+    "email":"rahul@123.com",
+    "password":"1237&Rahul"
+}
+
+
+###
+
+PUT http://localhost:3000/profile/1/
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiam9objUiLCJpYXQiOjE2Mjg4Mzc4Nzd9.W85sm0qR7EAXJ_w9dRvILx2mY5LiclrHY3EtdrpzbJI
 
@@ -79,7 +134,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiam9objUiL
     "name":"john5",
     "email":"john@123.com",
     "password":"1237&Abc",
-    "age":37,
+    "age":30,
     "gender":"male",
     "company":"xyz",
     "designation":"abc",
